@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom'
 import { useInfo } from './context/myContext';
 import { buscaUser, buscaProducts } from './utils'
 
 function Products() {
+    const navigate = useNavigate();
     const { info } = useInfo();
     const [ filesUser, setFilesUser ] = useState([]);
     const [ products, setProducts ] = useState([]);
@@ -15,10 +16,7 @@ function Products() {
     }
     useEffect(() => {
         getUserInfos()
-    })
-    useEffect(() => {
-        setFilesUser(filesUser)
-      }, [filesUser, setFilesUser])
+    }, [])
 
   return (
     <div>
@@ -30,7 +28,7 @@ function Products() {
             <h2>{item.name}</h2>
             <h2>{ item.email }</h2>
             <h2>{ item.coins }</h2>
-            { item.name === 'Admin' && <button onClick={() => console.log('clicou') } >
+            { item.name === 'Admin' && <button onClick={() => navigate('/admin') } >
                 Área de Controle
                 </button> } 
             </div>
