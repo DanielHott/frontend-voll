@@ -26,6 +26,7 @@ async function findAUser(e) {
 }
 
 async function updateCoins(e) {
+  e.preventDefault();
   await updateUser(coins);
   findAUser(e);
   alert('Usuário atualizado!')
@@ -84,8 +85,10 @@ async function updateCoins(e) {
               <p>Usuário: { item.name }</p>
               <p>Saldo Atual: { item.coins }</p>
               Novo saldo: <br />
+              <form onClick={(e) => updateCoins(e)}>
               <input className="name-product" type="number" onChange={(e) => setCoins({ email: item.email, coins: e.target.value })} />
-              <button className="button-back" onClick={(e) => updateCoins(e)}>Alterar</button>
+              <button className="button-back">Alterar</button>
+              </form>
               </div>
             )
           }) : <p></p> }

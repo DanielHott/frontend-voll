@@ -13,6 +13,34 @@ export const updateUser = (infos) => {
   return resultado;
 };
 
+export function changePassword(password, setPassword) {
+  const pass = document.getElementById('password')
+  if (password) pass.type = 'text'
+  if (!password) pass.type = 'password'
+  password ? setPassword(false) : setPassword(true);
+}
+
+export function changeBackground(e, mode, setMode) {
+  if (mode === false) {
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "white";
+  e.innerText= 'Modo Claro'
+  setMode(true);
+  }
+  if (mode === true) {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+    e.innerText= 'Modo Escuro'
+    setMode(false);
+  }
+}
+
+export function adcCarrinho(product, card) {
+  const newProduct =  { ...product, index: card.length}
+  card.push(newProduct);
+  alert(`${product.name} adicionado ao carrinho! Você possui ${card.length} produtos no carrinho`)
+}
+
 export const findUser = (infos) => {
   const resultado = Axios.post(urlOneUser, infos).then((resp) => {
     if(resp.status === 200) {  

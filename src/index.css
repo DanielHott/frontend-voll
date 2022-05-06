@@ -75,8 +75,19 @@ body {
   text-shadow: rgb(0, 0, 0) 2px 2px;
 }
 
+.loading {
+  display: flex;
+  justify-content:center;
+}
+
+.password {
+  opacity: 80%;
+  font-size: 15px;
+}
+
 .cards-area {
   display:flex;
+  justify-content:center;
   flex-wrap: wrap;
 }
 
@@ -184,6 +195,11 @@ body {
   margin: 20px;
   width: 200px;
   transition: all 0.3s ease-out;
+}
+
+.carrinho {
+  display: flex;
+  justify-content:center;
 }
 
 code {
