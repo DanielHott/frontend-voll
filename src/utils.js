@@ -9,12 +9,20 @@ export const buscaUser = (infos) => {
 };
 
 export const updateUser = (infos) => {
+  const resultado = Axios.patch(urlUser, infos).then((resp) => resp.data);
+  return resultado;
+};
+
+export const findUser = (infos) => {
   const resultado = Axios.post(urlOneUser, infos).then((resp) => {
     if(resp.status === 200) {  
     return resp.data
   }
-  return null
-});
+}).catch(
+  function () {
+    alert('Usuário não encontrado!')
+    return null;
+  });
   return resultado;
 };
 

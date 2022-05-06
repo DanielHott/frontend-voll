@@ -24,10 +24,11 @@ function Products() {
         {!loading ?  filesUser.map((item) => {
             return (
                 <div key="user-header">
+            <button onClick={() => navigate('/')}>Sair</button>
             <img src={ item.image } alt="logo-user" width="60" />
             <h2>{item.name}</h2>
             <h2>{ item.email }</h2>
-            <h2>{ item.coins }</h2>
+            <h2>Saldo: ${ item.coins }</h2>
             { item.name === 'Admin' && <button onClick={() => navigate('/admin') } >
                 Área de Controle
                 </button> } 

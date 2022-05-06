@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { createProducts, updateUser } from "./utils";
+import { createProducts, findUser, updateUser } from "./utils";
 
 function ControlArea() {
 const navigate = useNavigate();
 const [user, setUser] = useState({ email: '' })
 const [loading, setLoading] = useState(true)
+const [coins, setCoins] = useState({ email: '', coins: '' })
 const [ userFiles, setUserFiles ] = useState([])
 const [product, setProduct ] = useState({
   name: '', coins: 0, description: '', image: ''
@@ -16,11 +17,20 @@ async function addProduct(e) {
   await createProducts(product);
 }
 
-async function uptUser(e) {
+async function findAUser(e) {
   e.preventDefault();
-  updateUser(user).then((a) => setUserFiles([a]));
-  setLoading(false);
+  findUser(user).then((a) => {
+    if (!a) return setLoading(true);
+    setLoading(false);
+    return setUserFiles([a])});
 }
+
+async function updateCoins(e) {
+  await updateUser(coins);
+  findAUser(e);
+  alert('Usuário atualizado!')
+}
+
   return (
     <div className="out-adm">
     <button onClick={() => navigate('/products') }>Retornar</button> 
@@ -57,7 +67,7 @@ async function uptUser(e) {
         </div>
         <div>
           <h2>Controle de moedas:</h2>
-          <form onSubmit={(e) => uptUser(e)}>
+          <form onSubmit={(e) => findAUser(e)}>
           <label>Insira o email do usuário
             <br />
           <input type="email" placeholder="Insira o email" onChange={ (e) => setUser({ email: e.target.value })}
@@ -66,13 +76,17 @@ async function uptUser(e) {
           <button>Encontrar</button>
           </form>
           { !loading ? userFiles.map((item) => {
+            if (item.message === 'Usuário não encontrado!') return <p>aaaaaaaaaa</p>
             return (
-              <div>
-              <p>{ item.name }</p>
-              <p>Saldo: { item.coins }</p>
+              <div key="user">
+              <img src={ item.image } alt="user" width="60"/>
+              <p>Usuário: { item.name }</p>
+              <p>Saldo Atual: { item.coins }</p>
+              Novo saldo: <input type="number" onChange={(e) => setCoins({ email: item.email, coins: e.target.value })} />
+              <button onClick={(e) => updateCoins(e)}>Alterar</button>
               </div>
             )
-          }) : <p>Saldo: 0</p> }
+          }) : <p></p> }
         </div>
       </div>
     </div>
