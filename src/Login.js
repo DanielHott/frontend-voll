@@ -26,6 +26,7 @@ const { info, setInfo } = useInfo();
           <br />
           <button className="button-login" type="submit">Entrar</button>
         </form>
+        <h3 className="footer" >Desenvolvido por Daniel Hott</h3>
     </div>
   );
 }
