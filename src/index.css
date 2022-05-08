@@ -13,6 +13,10 @@ body {
   margin-top: 5%;
 }
 
+.Name {
+  color:#ea3353;
+}
+
 
 .form-login {
   border: 2px solid #ea3353;
@@ -83,6 +87,10 @@ body {
 .password {
   opacity: 80%;
   font-size: 15px;
+}
+
+.arg-login {
+  font-size: 16px
 }
 
 .cards-area {

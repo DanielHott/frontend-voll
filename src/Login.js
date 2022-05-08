@@ -17,7 +17,7 @@ function Login() {
       >
         <img src={voll} alt="logo" width="310" />
         <br />
-        <label>
+        <label className="arg-login">
           {" "}
           Qual é o seu e-mail?
           <br />
@@ -30,7 +30,7 @@ function Login() {
           />
         </label>
         <br />
-        <label>
+        <label className="arg-login">
           {" "}
           Informe sua senha.
           <br />
@@ -56,7 +56,7 @@ function Login() {
           Entrar
         </button>
       </form>
-      <h3 className="footer">Desenvolvido por Daniel Hott</h3>
+      <h3 className="footer">Desenvolvido por <a className="Name" target="_blank" href="https://www.linkedin.com/in/danielhott/" rel="noreferrer">Daniel Hott</a></h3>
     </div>
   );
 }
