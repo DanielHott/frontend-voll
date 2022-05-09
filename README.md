@@ -2,6 +2,10 @@
 
 Esta aplicação foi desenvolvida para um teste técnico onde consiste na criação de uma plataforma para controle de pontos com loja virtual.
 
+## Acessando online
+
+Acesse a aplicação aqui: https://frontend-voll.herokuapp.com/
+
 ## Detalhes da aplicação
 ### Tela login
 
