@@ -4,7 +4,7 @@ Esta aplicação foi desenvolvida para um teste técnico onde consiste na criaç
 
 ## Acessando online
 
-Acesse a aplicação aqui: https://frontend-voll.herokuapp.com/
+Acesse a aplicação aqui: https://frontend-voll.vercel.app/
 Pode haver demora na hora de clicar no link por delay da plataforma de deploy.
 
 ## Detalhes da aplicação
